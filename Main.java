@@ -196,6 +196,37 @@ public class Main
         }
     }
 
+    class Intern extends Human
+    {
+        Date InternshipStarted;
+        Integer InternshipDays;
+        String UniversityName;
+
+        public Date getInternshipStarted() {
+            return InternshipStarted;
+        }
+
+        public void setInternshipStarted(Date internshipStarted) {
+            InternshipStarted = internshipStarted;
+        }
+
+        public Integer getInternshipDays() {
+            return InternshipDays;
+        }
+
+        public void setInternshipDays(Integer internshipDays) {
+            InternshipDays = internshipDays;
+        }
+
+        public String getUniversityName() {
+            return UniversityName;
+        }
+
+        public void setUniversityName(String universityName) {
+            UniversityName = universityName;
+        }
+    }
+
     class Department
     {
         private String Name;
@@ -270,6 +301,7 @@ public class Main
         private String Adress;
         private List<Department> DepartmentsList;
         private List<Doctor> DoctorsList;
+        private List<Intern> InternsList;
         private List<Patient> PatientsList;
 
         public String getName() {
@@ -302,6 +334,14 @@ public class Main
 
         public void addToDoctorsList(Doctor doctor) {
             DoctorsList.add(doctor);
+        }
+
+        public List<Intern> getInternsList() {
+            return InternsList;
+        }
+
+        public void addToInternsList(Intern intern) {
+            InternsList.add(intern);
         }
 
         public List<Patient> getPatientsList() {
