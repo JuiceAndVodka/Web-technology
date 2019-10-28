@@ -47,7 +47,9 @@ public class Patient extends Human
     @Override
     public String toString()
     {
-        String string = "Name: " + this.getName() + "\n" +
+        String string = "Patient" + "\n" +
+                        "Name: " + this.getName() + "\n" +
+                        "Id: " + this.getId() + "\n" +
                         "Surname: " + this.getSurname() + "\n" +
                         "Patronymic: " + this.getPatronymic() + "\n" +
                         "Gender: " + this.getGender() + "\n" +
@@ -59,7 +61,7 @@ public class Patient extends Human
 
         if (this.CurrentDisease != null)
         {
-            string += "Disease: \n" + this.CurrentDisease.toString() + "\n\n";
+            string += this.CurrentDisease.toString() + "\n\n";
         }
         else
         {

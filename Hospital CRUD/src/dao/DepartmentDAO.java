@@ -12,4 +12,6 @@ public interface DepartmentDAO {
     boolean create(Department department);
     boolean update(int id, Department department);
     boolean deleteById(int id);
+
+    boolean saveDepartmentsToTextFile(ArrayList<Department> departmentsList);
 }

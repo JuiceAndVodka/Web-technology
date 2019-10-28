@@ -5,6 +5,8 @@ import dao.DepartmentDAO;
 import dao.FactoryDAO;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class DepartmentServiceImplementation implements DepartmentService {
@@ -41,25 +43,37 @@ public class DepartmentServiceImplementation implements DepartmentService {
         departmentDAO.deleteById(id);
     }
 
-    public ArrayList<Department> sortDepartmentByName() {
+    public ArrayList<Department> sortDepartmentByName(boolean doesAscending) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
         ArrayList<Department> departmentsList =  departmentDAO.getAll();
-        departmentsList.sort(new DepartmentNameComparator());
+        Collections.sort(departmentsList, new DepartmentNameComparator());
+
+        if (!doesAscending) {
+            Collections.reverse(departmentsList);
+        }
+
+        departmentDAO.saveDepartmentsToTextFile(departmentsList);
 
         return departmentsList;
     }
 
-    public ArrayList<Department> sortDepartmentByFloor() {
+    public ArrayList<Department> sortDepartmentByFloor(boolean doesAscending) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
         ArrayList<Department> departmentsList =  departmentDAO.getAll();
-        departmentsList.sort(new DepartmentFloorComparator());
+        Collections.sort(departmentsList, new DepartmentFloorComparator());
+
+        if (!doesAscending) {
+            Collections.reverse(departmentsList);
+        }
+
+        departmentDAO.saveDepartmentsToTextFile(departmentsList);
 
         return departmentsList;
     }
 
-    public ArrayList<Department> findDepartmentByFloor(String name) {
+    public ArrayList<Department> findDepartmentByFloor(int floor) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
         ArrayList<Department> departmentsList =  departmentDAO.getAll();
@@ -67,7 +81,7 @@ public class DepartmentServiceImplementation implements DepartmentService {
 
         for (Department department: departmentsList)
         {
-            if(department.getName().equals(name)) {
+            if(department.getFloor() == floor) {
                 appropriateDepartmentsList.add(department);
             }
         }

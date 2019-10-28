@@ -21,7 +21,16 @@ public class DoctorView implements  HumanView {
         String startedWorking = scanner.nextLine();
 
         System.out.println("Enter amount of patients healed");
-        int patientsHealed = scanner.nextInt();
+        int patientsHealed;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            patientsHealed = 5;
+        }
+        else {
+            patientsHealed = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         return new Doctor(medicalWorker.getName(), medicalWorker.getSurname(), medicalWorker.getPatronymic(),

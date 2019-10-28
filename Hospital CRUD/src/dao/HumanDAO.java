@@ -13,4 +13,6 @@ public interface HumanDAO {
     boolean update(int id, Human human);
     boolean deleteById(int id);
 
+    boolean saveHumansToTextFile(ArrayList<Human> humansList);
+
 }

@@ -13,7 +13,7 @@ public interface DepartmentService {
     void updateDepartment(int id, Department user);
     void deleteDepartmentById(int id);
 
-    ArrayList<Department> sortDepartmentByName();
-    ArrayList<Department> sortDepartmentByFloor();
-    ArrayList<Department> findDepartmentByFloor(String name);
+    ArrayList<Department> sortDepartmentByName(boolean doesAscending);
+    ArrayList<Department> sortDepartmentByFloor(boolean doesAscending);
+    ArrayList<Department> findDepartmentByFloor(int floor);
 }

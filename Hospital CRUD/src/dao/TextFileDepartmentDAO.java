@@ -2,6 +2,7 @@ package dao;
 
 import bean.Department;
 import bean.Identifier;
+import constants.GlobalConstants;
 import dao.Serializers.DepartmentTextFileSerializer;
 
 import java.io.BufferedReader;
@@ -16,8 +17,14 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
     public ArrayList<Department> getAll() {
 
+        ArrayList<Department> departmentsList = getAllDepartments();
+        return (ArrayList<Department>)departmentsList.clone();
+    }
+
+    private ArrayList<Department> getAllDepartments() {
+
         if (departmentsCash != null) {
-            return  (ArrayList<Department>)departmentsCash.clone();
+            return  departmentsCash;
         }
 
         ArrayList<Department> departmentsList = new ArrayList<>();
@@ -26,7 +33,7 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
         try {
 
-            fileReader = new FileReader("D:\\Departments.txt");
+            fileReader = new FileReader(GlobalConstants.SourceFilePath + "\\Departments.txt");
             bufferedReader = new BufferedReader(fileReader);
 
             while (true) {
@@ -63,13 +70,13 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
         departmentsCash = departmentsList;
 
-        return (ArrayList<Department>)departmentsList.clone();
+        return departmentsList;
     }
 
     public Department getById(int id) {
 
         Department foundedDepartment = null;
-        ArrayList<Department> departmentsList = getAll();
+        ArrayList<Department> departmentsList = getAllDepartments();
 
         for (Department department: departmentsList) {
 
@@ -83,7 +90,7 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
     public  boolean create(Department department) {
 
-        ArrayList<Department> departmentsList = getAll();
+        ArrayList<Department> departmentsList = getAllDepartments();
 
         department.setId(Identifier.getUniqId((new ArrayList<>(departmentsList))));
 
@@ -103,12 +110,13 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
     public boolean update(int id, Department department) {
 
-        ArrayList<Department> departmentsList = getAll();
+        ArrayList<Department> departmentsList = getAllDepartments();
 
         for(int i = 0; i < departmentsList.size(); i++)
         {
             if(departmentsList.get(i).getId() == id)
             {
+                department.setId(id);
                 departmentsList.set(i, department);
 
                 try {
@@ -129,7 +137,7 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
     public boolean deleteById(int id) {
 
-        ArrayList<Department> departmentsList = getAll();
+        ArrayList<Department> departmentsList = getAllDepartments();
 
         for (int i = 0; i < departmentsList.size(); i++) {
 
@@ -154,7 +162,7 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
     public boolean saveDepartmentsToTextFile(ArrayList<Department> departmentsList) {
 
-        try (FileWriter writer = new FileWriter("D:\\Departments.txt", false)) {
+        try (FileWriter writer = new FileWriter(GlobalConstants.SourceFilePath + "\\Departments.txt", false)) {
 
             for(Department department: departmentsList) {
 

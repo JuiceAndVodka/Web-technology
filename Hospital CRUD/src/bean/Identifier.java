@@ -30,7 +30,7 @@ public class Identifier {
 
     public static int getUniqId(ArrayList<Identifier> identifierList)
     {
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random(100000000);
         boolean isIdUniq;
         int uniqId;
 
@@ -43,7 +43,7 @@ public class Identifier {
                     isIdUniq = false;
                 }
             }
-        }while (isIdUniq);
+        } while (!isIdUniq || (uniqId == 0));
 
         return uniqId;
     }

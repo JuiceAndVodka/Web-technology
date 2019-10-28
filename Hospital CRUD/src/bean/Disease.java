@@ -91,7 +91,8 @@ public class Disease
     @Override
     public String toString()
     {
-        String string = "\t" + "Name: " + this.Name + "\n" +
+        String string = "\t" + "Disease" + "\n" +
+                        "\t" + "Name: " + this.Name + "\n" +
                         "\t" + "WhenStarted: " + this.WhenStarted + "\n" +
                         "\t" + "Duration: " + this.Duration + "\n" +
                         "\t" + "PatientComplaints: " + this.PatientComplaints + "\n" +

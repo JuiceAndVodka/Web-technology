@@ -53,7 +53,9 @@ public class Intern extends MedicalWorker
     @Override
     public String toString()
     {
-        String string = "Name: " + this.getName() + "\n" +
+        String string = "Intern" + "\n" +
+                        "Name: " + this.getName() + "\n" +
+                        "Id: " + this.getId() + "\n" +
                         "Surname: " + this.getSurname() + "\n" +
                         "Patronymic: " + this.getPatronymic() + "\n" +
                         "Gender: " + this.getGender() + "\n" +

@@ -53,7 +53,9 @@ public class Doctor extends MedicalWorker
     @Override
     public String toString() {
 
-        String string = "Name: " + this.getName() + "\n" +
+        String string = "Doctor" + "\n" +
+                        "Name: " + this.getName() + "\n" +
+                        "Id: " + this.getId() + "\n" +
                         "Surname: " + this.getSurname() + "\n" +
                         "Patronymic: " + this.getPatronymic() + "\n" +
                         "Gender: " + this.getGender() + "\n" +

@@ -13,7 +13,7 @@ public interface HumanService {
     void updateHuman(int id, Human user);
     void deleteHumanById(int id);
 
-    ArrayList<Human> sortByFirstName();
-    ArrayList<Human> sortByGender();
-    ArrayList<Human> findByFirstName(String name);
+    ArrayList<Human> sortByFirstName(boolean doesAscending);
+    ArrayList<Human> sortByGender(boolean doesAscending);
+    ArrayList<Human> findByDepartmentName(String name);
 }

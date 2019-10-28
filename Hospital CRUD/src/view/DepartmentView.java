@@ -14,23 +14,68 @@ public class DepartmentView {
         String name = scanner.nextLine();
 
         System.out.println("Enter floor");
-        int floor = scanner.nextInt();
+        int floor;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            floor = 5;
+        }
+        else {
+            floor = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         System.out.println("Enter amount of wards");
-        int wardsAmount = scanner.nextInt();
+        int wardsAmount;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            wardsAmount = 5;
+        }
+        else {
+            wardsAmount = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         System.out.println("Enter amount of doctors");
-        int doctorsAmount = scanner.nextInt();
+        int doctorsAmount;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            doctorsAmount = 5;
+        }
+        else {
+            doctorsAmount = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         System.out.println("Enter amount of current patients");
-        int currentPatientsAmount = scanner.nextInt();
+        int currentPatientsAmount;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            currentPatientsAmount = 5;
+        }
+        else {
+            currentPatientsAmount = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         System.out.println("Enter amount of maximum patients");
-        int maxPatientsAmount = scanner.nextInt();
+        int maxPatientsAmount;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            maxPatientsAmount = 5;
+        }
+        else {
+            maxPatientsAmount = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         return new Department(name, floor, wardsAmount, doctorsAmount, currentPatientsAmount, maxPatientsAmount);

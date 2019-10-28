@@ -21,11 +21,29 @@ public class NurseView implements HumanView {
         String startedWorking = scanner.nextLine();
 
         System.out.println("Enter amount of injections did");
-        int injectionsDid = scanner.nextInt();
+        int injectionsDid;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            injectionsDid = 5;
+        }
+        else {
+            injectionsDid = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         System.out.println("Enter amount of patients saved");
-        int patientsSaved = scanner.nextInt();
+        int patientsSaved;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            patientsSaved = 5;
+        }
+        else {
+            patientsSaved = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         return new Nurse(medicalWorker.getName(), medicalWorker.getSurname(), medicalWorker.getPatronymic(),

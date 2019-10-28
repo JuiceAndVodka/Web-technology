@@ -5,6 +5,8 @@ import dao.FactoryDAO;
 import dao.HumanDAO;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class HumanServiceImplementation implements HumanService {
@@ -42,25 +44,37 @@ public class HumanServiceImplementation implements HumanService {
         humanDAO.deleteById(id);
     }
 
-    public ArrayList<Human> sortByFirstName() {
+    public ArrayList<Human> sortByFirstName(boolean doesAscending) {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
         ArrayList<Human> humansList =  humanDAO.getAll();
-        humansList.sort(new HumanFirstNameComparator());
+        Collections.sort(humansList, new HumanFirstNameComparator().thenComparing(new HumanSurnameComparator()));
+
+        if (!doesAscending) {
+            Collections.reverse(humansList);
+        }
+
+        humanDAO.saveHumansToTextFile(humansList);
 
         return humansList;
     }
 
-    public ArrayList<Human> sortByGender() {
+    public ArrayList<Human> sortByGender(boolean doesAscending) {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
         ArrayList<Human> humansList =  humanDAO.getAll();
-        humansList.sort(new HumanGenderComparator());
+        Collections.sort(humansList, new HumanGenderComparator());
+
+        if (!doesAscending) {
+            Collections.reverse(humansList);
+        }
+
+        humanDAO.saveHumansToTextFile(humansList);
 
         return humansList;
     }
 
-    public ArrayList<Human> findByFirstName(String name) {
+    public ArrayList<Human> findByDepartmentName(String name) {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
         ArrayList<Human> humansList =  humanDAO.getAll();
@@ -68,7 +82,7 @@ public class HumanServiceImplementation implements HumanService {
 
         for (Human human: humansList)
         {
-            if(human.getName().equals(name))
+            if(human.getDepartmentName().equals(name))
                 appropriateHumansList.add(human);
         }
 
@@ -80,6 +94,14 @@ public class HumanServiceImplementation implements HumanService {
         public int compare(Human firstHuman, Human secondHuman){
 
             return firstHuman.getName().compareTo(secondHuman.getName());
+        }
+    }
+
+    class HumanSurnameComparator implements Comparator<Human> {
+
+        public int compare(Human firstHuman, Human secondHuman){
+
+            return firstHuman.getSurname().compareTo(secondHuman.getSurname());
         }
     }
 

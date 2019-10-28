@@ -18,11 +18,29 @@ public class InternView implements HumanView {
         String internshipStarted = scanner.nextLine();
 
         System.out.println("Enter amount of internship days");
-        int injectionsDid = scanner.nextInt();
+        int injectionsDid;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            injectionsDid = 5;
+        }
+        else {
+            injectionsDid = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         System.out.println("Enter amount of made mistakes");
-        int mistakesMade = scanner.nextInt();
+        int mistakesMade;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            mistakesMade = 5;
+        }
+        else {
+            mistakesMade = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         return new Intern(medicalWorker.getName(), medicalWorker.getSurname(), medicalWorker.getPatronymic(),

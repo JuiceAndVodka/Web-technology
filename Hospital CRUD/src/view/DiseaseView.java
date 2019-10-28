@@ -10,14 +10,23 @@ public class DiseaseView {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter name");
+        System.out.println("Enter disease name");
         String name = scanner.nextLine();
 
         System.out.println("Enter data, when it started");
         String whenStarted = scanner.nextLine();
 
-        System.out.println("Enter duration");
-        int duration = scanner.nextInt();
+        System.out.println("Enter disease duration");
+        int duration;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            duration = 5;
+        }
+        else {
+            duration = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         System.out.println("Enter patient complaints");
@@ -27,7 +36,16 @@ public class DiseaseView {
         String prescribedTreatments = scanner.nextLine();
 
         System.out.println("Enter was treatment success");
-        boolean wasTreatmentSuccess = scanner.nextBoolean();
+        boolean wasTreatmentSuccess;
+
+        if (!scanner.hasNextBoolean()) {
+            System.out.println("Incorrect type value! Set default value: true");
+            wasTreatmentSuccess = true;
+        }
+        else {
+            wasTreatmentSuccess = scanner.nextBoolean();
+        }
+
         scanner.nextLine();
 
         return new Disease(name, whenStarted, duration, patientComplaints, prescribedTreatments, wasTreatmentSuccess);

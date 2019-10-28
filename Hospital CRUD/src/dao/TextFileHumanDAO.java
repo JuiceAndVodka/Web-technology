@@ -2,6 +2,7 @@ package dao;
 
 import bean.Human;
 import bean.Identifier;
+import constants.GlobalConstants;
 import dao.Serializers.FactoryHumanTextFileSerializers;
 
 import java.io.BufferedReader;
@@ -13,11 +14,16 @@ public class TextFileHumanDAO implements  HumanDAO {
 
     private ArrayList<Human> humansCash = null;
 
-    @Override
     public ArrayList<Human> getAll() {
 
+        ArrayList<Human> humansList = getAllHumans();
+        return (ArrayList<Human>)humansList.clone();
+    }
+
+    private ArrayList<Human> getAllHumans() {
+
         if (humansCash != null) {
-            return  (ArrayList<Human>)humansCash.clone();
+            return  humansCash;
         }
 
         ArrayList<Human> humansList = new ArrayList<>();
@@ -26,7 +32,7 @@ public class TextFileHumanDAO implements  HumanDAO {
 
         try {
 
-            fileReader = new FileReader("D:\\Humans.txt");
+            fileReader = new FileReader(GlobalConstants.SourceFilePath + "\\Humans.txt");
             bufferedReader = new BufferedReader(fileReader);
 
             while (true) {
@@ -63,14 +69,13 @@ public class TextFileHumanDAO implements  HumanDAO {
 
         humansCash = humansList;
 
-        return (ArrayList<Human>)humansList.clone();
+        return humansList;
     }
 
-    @Override
     public Human getById(int id) {
 
         Human foundedHuman = null;
-        ArrayList<Human> humansList = getAll();
+        ArrayList<Human> humansList = getAllHumans();
 
         for (Human human: humansList) {
 
@@ -82,10 +87,9 @@ public class TextFileHumanDAO implements  HumanDAO {
         return  foundedHuman;
     }
 
-    @Override
     public  boolean create(Human department) {
 
-        ArrayList<Human> humansList = getAll();
+        ArrayList<Human> humansList = getAllHumans();
 
         department.setId(Identifier.getUniqId((new ArrayList<>(humansList))));
 
@@ -103,10 +107,9 @@ public class TextFileHumanDAO implements  HumanDAO {
         }
     }
 
-    @Override
     public boolean update(int id, Human human) {
 
-        ArrayList<Human> humansList = getAll();
+        ArrayList<Human> humansList = getAllHumans();
 
         for(int i = 0; i < humansList.size(); i++)
         {
@@ -130,10 +133,9 @@ public class TextFileHumanDAO implements  HumanDAO {
         return false;
     }
 
-    @Override
     public boolean deleteById(int id) {
 
-        ArrayList<Human> humansList = getAll();
+        ArrayList<Human> humansList = getAllHumans();
 
         for (int i = 0; i < humansList.size(); i++) {
 
@@ -158,7 +160,7 @@ public class TextFileHumanDAO implements  HumanDAO {
 
     public boolean saveHumansToTextFile(ArrayList<Human> humansList) {
 
-        try (FileWriter writer = new FileWriter("D:\\Humans.txt", false)) {
+        try (FileWriter writer = new FileWriter(GlobalConstants.SourceFilePath + "\\Humans.txt", false)) {
 
             for(Human human: humansList) {
 

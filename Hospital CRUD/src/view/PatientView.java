@@ -15,7 +15,16 @@ public class PatientView implements  HumanView {
         Human human = HumanViewImplementation.StartToCreate();
 
         System.out.println("Enter ward number");
-        int wardNumber = scanner.nextInt();
+        int wardNumber;
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Incorrect type value! Set default value: 5");
+            wardNumber = 5;
+        }
+        else {
+            wardNumber = scanner.nextInt();
+        }
+
         scanner.nextLine();
 
         Disease disease = DiseaseView.StartToCreate();

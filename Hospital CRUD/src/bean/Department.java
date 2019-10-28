@@ -82,8 +82,9 @@ public class Department extends  Identifier implements Comparable<Department>
     public String toString()
     {
         String string = "Name: " + this.Name + "\n" +
+                        "Id: " + this.getId() + "\n" +
                         "Floor: " + this.Floor + "\n" +
-                        "WardsAmount" + this.WardsAmount + "\n" +
+                        "WardsAmount: " + this.WardsAmount + "\n" +
                         "DoctorsAmount: " + this.DoctorsAmount + "\n" +
                         "CurrentPatientsAmount: " + this.CurrentPatientsAmount + "\n" +
                         "MaxPatientsAmount: " + this.MaxPatientsAmount + "\n\n";

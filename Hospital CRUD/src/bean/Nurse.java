@@ -65,7 +65,9 @@ public class Nurse extends MedicalWorker {
     @Override
     public String toString()
     {
-        String string = "Name: " + this.getName() + "\n" +
+        String string = "Nurse" + "\n" +
+                        "Name: " + this.getName() + "\n" +
+                        "Id: " + this.getId() + "\n" +
                         "Surname: " + this.getSurname() + "\n" +
                         "Patronymic: " + this.getPatronymic() + "\n" +
                         "Gender: " + this.getGender() + "\n" +
@@ -80,7 +82,7 @@ public class Nurse extends MedicalWorker {
                         "CurrentPost: " + this.CurrentPost + "\n" +
                         "StartedWorking: " + this.StartedWorking + "\n" +
                         "InjectionsDid: " + this.InjectionsDid + "\n" +
-                        "PatientsSaved" + this.PatientsSaved + "\n\n";
+                        "PatientsSaved: " + this.PatientsSaved + "\n\n";
 
         return string;
     }
