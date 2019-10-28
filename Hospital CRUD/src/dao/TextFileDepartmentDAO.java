@@ -173,6 +173,8 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
 
             writer.flush();
 
+            departmentsCash = (ArrayList<Department>)departmentsList.clone();
+
             return  true;
         }
         catch(Exception exception){

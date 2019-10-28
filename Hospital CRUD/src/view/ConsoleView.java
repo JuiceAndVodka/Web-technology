@@ -241,7 +241,7 @@ public class ConsoleView {
             System.out.println("1. Create human");
             System.out.println("2. Update human");
             System.out.println("3. Delete human");
-            System.out.println("4. Sort by name");
+            System.out.println("4. Sort by department name");
             System.out.println("5. Sort by gender");
             System.out.println("6. Find by department name");
             System.out.println("7. Show humans list again");
@@ -354,7 +354,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    ShowHumansList(FactoryService.getInstance().getHumanService().sortByFirstName(doesAscending));
+                    ShowHumansList(FactoryService.getInstance().getHumanService().sortByDepartmentName(doesAscending));
                     System.out.println("**************************************************");
                     break;
                 }

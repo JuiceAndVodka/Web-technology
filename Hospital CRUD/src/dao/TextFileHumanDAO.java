@@ -171,6 +171,8 @@ public class TextFileHumanDAO implements  HumanDAO {
 
             writer.flush();
 
+            humansCash = (ArrayList<Human>)humansList.clone();
+
             return  true;
         }
         catch(Exception exception){

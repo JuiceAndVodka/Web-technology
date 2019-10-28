@@ -44,11 +44,11 @@ public class HumanServiceImplementation implements HumanService {
         humanDAO.deleteById(id);
     }
 
-    public ArrayList<Human> sortByFirstName(boolean doesAscending) {
+    public ArrayList<Human> sortByDepartmentName(boolean doesAscending) {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
         ArrayList<Human> humansList =  humanDAO.getAll();
-        Collections.sort(humansList, new HumanFirstNameComparator().thenComparing(new HumanSurnameComparator()));
+        Collections.sort(humansList, new HumanDepartmentNameComparator().thenComparing(new HumanFirstNameComparator()));
 
         if (!doesAscending) {
             Collections.reverse(humansList);
@@ -89,19 +89,19 @@ public class HumanServiceImplementation implements HumanService {
         return appropriateHumansList;
     }
 
+    class HumanDepartmentNameComparator implements Comparator<Human> {
+
+        public int compare(Human firstHuman, Human secondHuman){
+
+            return firstHuman.getDepartmentName().compareTo(secondHuman.getDepartmentName());
+        }
+    }
+
     class HumanFirstNameComparator implements Comparator<Human> {
 
         public int compare(Human firstHuman, Human secondHuman){
 
             return firstHuman.getName().compareTo(secondHuman.getName());
-        }
-    }
-
-    class HumanSurnameComparator implements Comparator<Human> {
-
-        public int compare(Human firstHuman, Human secondHuman){
-
-            return firstHuman.getSurname().compareTo(secondHuman.getSurname());
         }
     }
 
