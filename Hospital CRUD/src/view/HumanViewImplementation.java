@@ -4,8 +4,17 @@ import bean.Human;
 
 import java.util.Scanner;
 
+/**
+ * Класс для создания нового объекта класса {@link Human} диалога между пользователем и приложением
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class HumanViewImplementation {
 
+    /**
+     * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
+     * @return новый объект типа {@link Human}
+     */
     public static Human StartToCreate()
     {
         Scanner scanner = new Scanner(System.in);

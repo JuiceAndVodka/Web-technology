@@ -9,8 +9,19 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * Класс бизнес логики для объектов типа {@link Department}, реализующий {@link DepartmentService}
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class DepartmentServiceImplementation implements DepartmentService {
 
+    /**
+     * Возвращает объект типа {@link Department}, связываясь с Базой Данных
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @param id идентификационный номер нужного объекта
+     * @return найденный по идентификационному номеру объект
+     */
     public Department getDepartment(int id)
     {
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
@@ -18,6 +29,11 @@ public class DepartmentServiceImplementation implements DepartmentService {
         return departmentDAO.getById(id);
     }
 
+    /**
+     * Получает список объектов типа {@link Department}, связываясь с Базой Данных
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @return список объектов типа {@link Department}
+     */
     public ArrayList<Department> getAllDepartments() {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
@@ -25,24 +41,56 @@ public class DepartmentServiceImplementation implements DepartmentService {
         return departmentDAO.getAll();
     }
 
-    public void addDepartment(Department department) {
+    /**
+     * Передаёт на добавление в Базу Данных объект типа {@link Department}
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @param department передаваемый для добавления объект типа {@link Department}
+     * @return значение (true/ false), указывающее на результат операции
+     */
+    public boolean addDepartment(Department department) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
         departmentDAO.create(department);
+
+        return true;
     }
 
-    public void updateDepartment(int id, Department department) {
+    /**
+     * Передаёт на обновление в Базу Данных объект типа {@link Department}
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @param id идентификационный номер объекта, на который будет заменён передаваемый объект
+     * @param department новый объект типа {@link Department}, который будет заменён на существующий объект
+     * @return значение (true/ false), указывающее на результат операции
+     */
+    public boolean updateDepartment(int id, Department department) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
         departmentDAO.update(id, department);
+
+        return true;
     }
 
-    public void deleteDepartmentById(int id) {
+    /**
+     * Передаёт на удаление в Базу Данных объект типа {@link Department}
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @param id идентификационный номер удаляемого объекта
+     * @return значение (true/ false), указывающее на результат операции
+     */
+    public boolean deleteDepartmentById(int id) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
         departmentDAO.deleteById(id);
+
+        return true;
     }
 
+    /**
+     * Сортирует все элементы списка с объектами типа {@link Department} по названию отделения,
+     * получая список из Базы Данных
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @param doesAscending восходящая или нисходящая сортировка
+     * @return список отсортированных объектов типа {@link Department}
+     */
     public ArrayList<Department> sortDepartmentByName(boolean doesAscending) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
@@ -58,6 +106,13 @@ public class DepartmentServiceImplementation implements DepartmentService {
         return departmentsList;
     }
 
+    /**
+     * Сортирует все элементы списка с объектами типа {@link Department} по этажу отделения,
+     * получая список из Базы Данных
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @param doesAscending восходящая или нисходящая сортировка
+     * @return список отсортированных объектов типа {@link Department}
+     */
     public ArrayList<Department> sortDepartmentByFloor(boolean doesAscending) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
@@ -73,6 +128,13 @@ public class DepartmentServiceImplementation implements DepartmentService {
         return departmentsList;
     }
 
+    /**
+     * Выполняет поиск подходящих объектов типа {@link Department} по критерию этажа, получая
+     * список объектов из Базы Данных
+     * {@link FactoryDAO#getDepartmentDAO()}
+     * @param floor этаж (критерий поиска)
+     * @return список найденных объектов типа {@link Department}
+     */
     public ArrayList<Department> findDepartmentByFloor(int floor) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
@@ -89,6 +151,11 @@ public class DepartmentServiceImplementation implements DepartmentService {
         return appropriateDepartmentsList;
     }
 
+    /**
+     * Класс, реализующий интерфейс {@link Comparator<Department>}, для сравнения имени двух объектов
+     * @author Абраменко Алексей, 751003
+     * @version 1.0
+     */
     class DepartmentNameComparator implements Comparator<Department> {
 
         public int compare(Department firstDepartment, Department secondDepartment){
@@ -97,6 +164,11 @@ public class DepartmentServiceImplementation implements DepartmentService {
         }
     }
 
+    /**
+     * Класс, реализующий интерфейс {@link Comparator<Department>}, для сравнения этажей двух объектов
+     * @author Абраменко Алексей, 751003
+     * @version 1.0
+     */
     class DepartmentFloorComparator implements Comparator<Department>{
 
         public int compare(Department firstDepartment, Department secondDepartment){

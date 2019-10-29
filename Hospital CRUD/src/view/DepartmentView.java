@@ -4,8 +4,17 @@ import bean.Department;
 
 import java.util.Scanner;
 
+/**
+ * Класс для диалога между пользователем и приложением для создания нового объекта класса {@link Department}
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class DepartmentView {
 
+    /**
+     * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
+     * @return новый объект типа {@link Department}
+     */
     public static Department StartToCreate() {
 
         Scanner scanner = new Scanner(System.in);

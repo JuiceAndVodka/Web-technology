@@ -5,8 +5,17 @@ import bean.MedicalWorker;
 
 import java.util.Scanner;
 
+/**
+ * Класс для создания нового объекта класса {@link MedicalWorker} диалога между пользователем и приложением
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class MedicalWorkerView {
 
+    /**
+     * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
+     * @return новый объект типа {@link MedicalWorker}
+     */
     public static MedicalWorker StartToCreate() {
 
         Scanner scanner = new Scanner(System.in);

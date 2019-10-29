@@ -4,8 +4,17 @@ import bean.Disease;
 
 import java.util.Scanner;
 
+/**
+ * Класс для диалога между пользователем и приложением для создания нового объекта класса {@link Disease}
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class DiseaseView {
 
+    /**
+     * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
+     * @return новый объект типа {@link Disease}
+     */
     public static Disease StartToCreate() {
 
         Scanner scanner = new Scanner(System.in);

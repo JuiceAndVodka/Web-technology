@@ -7,8 +7,16 @@ import service.FactoryService;
 import java.util.ArrayList;
 import  java.util.Scanner;
 
+/**
+ * Класс графической части приложения, благодаря которому происходит диалог между пользователем и приложением
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class ConsoleView {
 
+    /**
+     * Начинает диалог между пользователем и приложением
+     */
     public void Start() {
 
         boolean exitFlag = false;
@@ -49,6 +57,9 @@ public class ConsoleView {
 
     }
 
+    /**
+     * Показывает список объктов типа {@link Department} и список функций для работы с ними
+     */
     public void ShowDepartments() {
 
         boolean exitFlag = false;
@@ -217,6 +228,10 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Отображает передаваемый список объектов
+     * @param departmentsList список объектов типа {@link Department}
+     */
     private void ShowDepartmentsList(ArrayList<Department> departmentsList) {
 
         for (Department department: departmentsList) {
@@ -224,6 +239,9 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Показывает список объктов типа {@link Human} и список функций для работы с ними
+     */
     public void ShowHumans(){
 
         boolean exitFlag = false;
@@ -412,11 +430,16 @@ public class ConsoleView {
                 }
                 default: {
                     System.out.println("Incorrect value!");
+                    System.out.println("**************************************************");
                 }
             }
         }
     }
 
+    /**
+     * Отображает передаваемый список объектов
+     * @param humansList список объектов типа {@link Human}
+     */
     private void ShowHumansList(ArrayList<Human> humansList) {
 
         for (Human human: humansList) {

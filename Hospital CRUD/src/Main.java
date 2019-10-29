@@ -1,26 +1,18 @@
-import bean.Doctor;
-import bean.Human;
-import bean.Intern;
-import bean.Nurse;
-import dao.TextFileHumanDAO;
 import view.ConsoleView;
 
-import java.util.ArrayList;
-
+/**
+ * Основной класс программы, содержащий стартовую функцию приложения {@link Main#main(String[])}
+ * @author Абраменко Алексей, группа 751003
+ * @version 1.0
+ */
 public class Main {
 
+    /**
+     * Начинает работу приложения
+     * @param args аргументы, переданные в командной строке при запуске программы
+     */
     public static void main(String[] args)
     {
-
-        /*TextFileHumanDAO textFileHumanDAO = new TextFileHumanDAO();
-
-        ArrayList<Human> humansList = textFileHumanDAO.getAll();
-
-        humansList.add(new Doctor());
-        humansList.add(new Nurse());
-        humansList.add(new Intern());
-
-        textFileHumanDAO.saveHumansToTextFile(humansList);*/
 
         ConsoleView consoleView = new ConsoleView();
 

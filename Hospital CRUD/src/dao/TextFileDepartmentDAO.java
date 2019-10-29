@@ -11,16 +11,30 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Класс файлового представления Базы Данных, реализующий интерфейс {@link DepartmentDAO}
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class TextFileDepartmentDAO implements DepartmentDAO {
 
+    /** Список объектов типа {@link Department}, используемый в качестве кэша */
     private ArrayList<Department> departmentsCash = null;
 
+    /**
+     * Получение всех объектов типа {@link Department}, хранящихся в текстовом файле
+     * @return список объектов типа {@link Department}
+     */
     public ArrayList<Department> getAll() {
 
         ArrayList<Department> departmentsList = getAllDepartments();
         return (ArrayList<Department>)departmentsList.clone();
     }
 
+    /**
+     * Непосредственная загрузка объекто типа {@link Department} из текстового файла
+     * @return список загруженных объектов
+     */
     private ArrayList<Department> getAllDepartments() {
 
         if (departmentsCash != null) {
@@ -73,6 +87,11 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
         return departmentsList;
     }
 
+    /**
+     * Получение объекта из списка объектов по его идентификационному номеру
+     * @param id идентификационный номер нужного объекта
+     * @return найденный объект типа {@link Department}
+     */
     public Department getById(int id) {
 
         Department foundedDepartment = null;
@@ -88,6 +107,11 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
         return  foundedDepartment;
     }
 
+    /**
+     * Сохранение недавно созданного объекта типа {@link Department}
+     * @param department передаваемый для хранения объект типа {@link Department}
+     * @return значение (true/ false), указывающее на результат операции
+     */
     public  boolean create(Department department) {
 
         ArrayList<Department> departmentsList = getAllDepartments();
@@ -108,6 +132,12 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
         }
     }
 
+    /**
+     * Обновляет объект с подходящим идентификационным номера в текстовом файле
+     * @param id идентификационный номер объекта, на который будет заменён передаваемый объект
+     * @param department новый объект типа {@link Department}, который будет заменён на существующий объект
+     * @return значение (true/ false), указывающее на результат операции
+     */
     public boolean update(int id, Department department) {
 
         ArrayList<Department> departmentsList = getAllDepartments();
@@ -135,6 +165,11 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
         return false;
     }
 
+    /**
+     * Удаляет объект типа {@link Department} с подходящим идентификационным номером из файла
+     * @param id идентификационный номер удаляемого объекта
+     * @return значение (true/ false), указывающее на результат операции
+     */
     public boolean deleteById(int id) {
 
         ArrayList<Department> departmentsList = getAllDepartments();
@@ -160,6 +195,11 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
         }
     }
 
+    /**
+     * Сохраняет передаваемый список объектов типа {@link Department} в текстовый файл
+     * @param departmentsList список объектов типа {@link Department} для сохранения
+     * @return значение (true/ false), указывающее на результат операции
+     */
     public boolean saveDepartmentsToTextFile(ArrayList<Department> departmentsList) {
 
         try (FileWriter writer = new FileWriter(GlobalConstants.SourceFilePath + "\\Departments.txt", false)) {

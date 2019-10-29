@@ -6,8 +6,18 @@ import bean.Patient;
 
 import java.util.Scanner;
 
+/**
+ * Класс, реализующий интерфейс {@link HumanView} для диалога между пользователем и приложением
+ * для создания нового объекта класса {@link Patient}
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class PatientView implements  HumanView {
 
+    /**
+     * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
+     * @return новый объект типа {@link Patient}
+     */
     public Human StartToCreate() {
 
         Scanner scanner = new Scanner(System.in);

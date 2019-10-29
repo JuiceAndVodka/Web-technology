@@ -3,10 +3,22 @@ package dao.Serializers;
 import bean.Human;
 import bean.Intern;
 
+/**
+ * Класс текстового сериализатора объекта класса {@link Intern}, реализующий
+ * интерфейс {@link HumanTextFileSerializer} и содержащий в себе сериализатор и десериализатор
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class InternTextFileSerializer implements HumanTextFileSerializer{
 
+    /** Поле символа для разделения полей объекта */
     private String fieldsDelimiter = "#";
 
+    /**
+     * Преобразует поля передаваемого объекта в нужное строковое представление для сериализации
+     * @param human передаваемый объект для сериализации типа {@link Human}
+     * @return строковое представление передаваемого объекта для сериализации
+     */
     public String serializeHuman(Human human)
     {
         if(!(human instanceof Intern))
@@ -35,6 +47,11 @@ public class InternTextFileSerializer implements HumanTextFileSerializer{
         return string;
     }
 
+    /**
+     * Преобразует передаваемую строку в нужный объект (десериализации)
+     * @param stringHuman строковое представление десериализуемого объекта
+     * @return объект типа {@link Human}
+     */
     public Human deserializeHuman(String stringHuman)
     {
         String[] internFields = stringHuman.split(fieldsDelimiter);

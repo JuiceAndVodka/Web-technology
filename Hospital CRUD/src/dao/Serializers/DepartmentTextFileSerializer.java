@@ -2,10 +2,21 @@ package dao.Serializers;
 
 import bean.Department;
 
+/**
+ * Класс текстового сериализатора объекта класса {@link Department}, содержащий в себе сериализатор и десериализатор
+ * @author Абраменко Алексей, 751003
+ * @version 1.0
+ */
 public class DepartmentTextFileSerializer {
 
+    /** Поле символа для разделения полей объекта */
     private String fieldsDelimiter = "#";
 
+    /**
+     * Преобразует поля передаваемого объекта в нужное строковое представление для сериализации
+     * @param department передаваемый объект для сериализации тип {@link Department}
+     * @return строковое представление передаваемого объекта для сериализации
+     */
     public String serializeDepartment(Department department)
     {
         String string = "Department" + fieldsDelimiter +
@@ -20,6 +31,11 @@ public class DepartmentTextFileSerializer {
         return string;
     }
 
+    /**
+     * Преобразует передаваемую строку в нужный объект (десериализации)
+     * @param stringDepartment строковое представление десериализуемого объекта
+     * @return объект типа {@link Department}
+     */
     public Department deserializeDepartment(String stringDepartment)
     {
         String[] departmentFields = stringDepartment.split(fieldsDelimiter);
