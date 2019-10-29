@@ -5,7 +5,7 @@ import bean.Human;
 import java.util.ArrayList;
 
 /**
- * Интерфейс для общения с Базой Данных ради объекта типа {@link Human}
+ * интерфейс для общения с Базой Данных ради объекта типа {@link Human}
  * @author Абраменко Алексей, 751003
  * @version 1.0
  */

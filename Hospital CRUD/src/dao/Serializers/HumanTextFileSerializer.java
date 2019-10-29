@@ -3,7 +3,7 @@ package dao.Serializers;
 import bean.Human;
 
 /**
- * Интерфейс текстового сериализатора для класса {@link Human}
+ * интерфейс текстового сериализатора для класса {@link Human}
  * @author Абраменко Алексей, 751003
  * @version 1.0
  */

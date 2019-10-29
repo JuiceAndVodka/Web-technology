@@ -5,7 +5,7 @@ import bean.Department;
 import java.util.ArrayList;
 
 /**
- * Интерфейс для представления бизнес-логии для объеков типа {@link Department}
+ * интерфейс для представления бизнес-логики для объеков типа {@link Department}
  * @author Абраменко Алексей, 751003
  * @version 1.0
  */

@@ -5,7 +5,7 @@ import bean.Department;
 import java.util.ArrayList;
 
 /**
- * Интерфейс для общения с Базой Данных ради объекта типа {@link Department}
+ * интерфейс для общения с Базой Данных ради объекта типа {@link Department}
  * @author Абраменко Алексей, 751003
  * @version 1.0
  */
