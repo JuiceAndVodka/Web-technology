@@ -9,5 +9,5 @@ import bean.Human;
  */
 public interface HumanView {
 
-    public Human StartToCreate();
+    public Human startToCreate();
 }

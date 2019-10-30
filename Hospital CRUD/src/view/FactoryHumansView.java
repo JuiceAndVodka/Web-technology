@@ -29,7 +29,7 @@ public class FactoryHumansView {
      * @param classSimpleName имя типа класса для получения значения из {@link FactoryHumansView#humansView}
      * @return поле производного типа от {@link HumanView}
      */
-    public static HumanView GetView(String classSimpleName) {
+    public static HumanView getView(String classSimpleName) {
         return humansView.get(classSimpleName);
     }
 

@@ -8,6 +8,7 @@ import dao.Serializers.FactoryHumanTextFileSerializers;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +25,7 @@ public class TextFileHumanDAO implements  HumanDAO {
      * Получение всех объектов типа {@link Human}, хранящихся в текстовом файле
      * @return список объектов типа {@link Human}
      */
-    public ArrayList<Human> getAll() {
+    public List<Human> getAll() {
 
         ArrayList<Human> humansList = getAllHumans();
         return (ArrayList<Human>)humansList.clone();

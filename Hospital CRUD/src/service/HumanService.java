@@ -3,6 +3,7 @@ package service;
 import bean.Human;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * интерфейс для представления бизнес-логии для объеков типа {@link Human}
@@ -22,7 +23,7 @@ public interface HumanService {
      * Получает список объектов типа {@link Human}
      * @return список объектов типа {@link Human}
      */
-    ArrayList<Human> getAllHumans();
+    List<Human> getAllHumans();
 
     /**
      * Добаляет передаваемый объект типа {@link Human} в список таких объектов
@@ -51,19 +52,19 @@ public interface HumanService {
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Human}
      */
-    ArrayList<Human> sortByDepartmentName(boolean doesAscending);
+    List<Human> sortByDepartmentName(boolean doesAscending);
 
     /**
      * Сортирует все элементы списка с объектами типа {@link Human} по полу человека
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Human}
      */
-    ArrayList<Human> sortByGender(boolean doesAscending);
+    List<Human> sortByGender(boolean doesAscending);
 
     /**
      * Выполняет поиск подходящих объектов типа {@link Human} по критерию названия отдела
      * @param name этаж (критерий поиска)
      * @return список найденных объектов типа {@link Human}
      */
-    ArrayList<Human> findByDepartmentName(String name);
+    List<Human> findByDepartmentName(String name);
 }

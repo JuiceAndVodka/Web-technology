@@ -18,11 +18,11 @@ public class HeadPhysicianView implements HumanView {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link HeadPhysician}
      */
-    public HeadPhysician StartToCreate() {
+    public HeadPhysician startToCreate() {
 
         Scanner scanner = new Scanner(System.in);
 
-        MedicalWorker medicalWorker = MedicalWorkerView.StartToCreate();
+        MedicalWorker medicalWorker = MedicalWorkerView.startToCreate();
 
         System.out.println("Enter started working date");
         String startedWorking = scanner.nextLine();

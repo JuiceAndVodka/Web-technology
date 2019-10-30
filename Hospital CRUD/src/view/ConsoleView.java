@@ -17,7 +17,7 @@ public class ConsoleView {
     /**
      * Начинает диалог между пользователем и приложением
      */
-    public void Start() {
+    public void start() {
 
         boolean exitFlag = false;
         Scanner scanner = new Scanner(System.in);
@@ -37,11 +37,11 @@ public class ConsoleView {
 
             switch (chosenNumber) {
                 case "1": {
-                    ShowDepartments();
+                    showDepartments();
                     break;
                 }
                 case "2": {
-                    ShowHumans();
+                    showHumans();
                     break;
                 }
                 case "3": {
@@ -60,14 +60,14 @@ public class ConsoleView {
     /**
      * Показывает список объктов типа {@link Department} и список функций для работы с ними
      */
-    public void ShowDepartments() {
+    public void showDepartments() {
 
         boolean exitFlag = false;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Departments list:\n");
 
-        ShowDepartmentsList(FactoryService.getInstance().getDepartmentService().getAllDepartments());
+        showDepartmentsList((ArrayList<Department>) FactoryService.getInstance().getDepartmentService().getAllDepartments());
 
         System.out.println("**************************************************");
 
@@ -92,7 +92,7 @@ public class ConsoleView {
             switch (chosenNumber) {
                 case "1": {
 
-                    Department department = DepartmentView.StartToCreate();
+                    Department department = DepartmentView.startToCreate();
 
                     System.out.println("**************************************************");
 
@@ -104,11 +104,13 @@ public class ConsoleView {
                     System.out.println("Enter department id: ");
 
                     if (!scanner.hasNextInt()) {
-                        System.out.println("Incorrect value!");
+                        System.out.println("Incorrect type value!");
                         System.out.println("**************************************************");
                         scanner.nextLine();
                         break;
                     }
+
+                    System.out.println("**************************************************");
 
                     int departmentId = scanner.nextInt();
                     scanner.nextLine();
@@ -120,7 +122,7 @@ public class ConsoleView {
                         break;
                     }
 
-                    Department department = DepartmentView.StartToCreate();
+                    Department department = DepartmentView.startToCreate();
 
                     System.out.println("**************************************************");
 
@@ -132,11 +134,13 @@ public class ConsoleView {
                     System.out.println("Enter department id: ");
 
                     if (!scanner.hasNextInt()) {
-                        System.out.println("Incorrect value! ");
+                        System.out.println("Incorrect type value! ");
                         System.out.println("**************************************************");
                         scanner.nextLine();
                         break;
                     }
+
+                    System.out.println("**************************************************");
 
                     int departmentId = scanner.nextInt();
                     scanner.nextLine();
@@ -166,7 +170,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    ShowDepartmentsList(FactoryService.getInstance().getDepartmentService().sortDepartmentByName(doesAscending));
+                    showDepartmentsList((ArrayList<Department>) FactoryService.getInstance().getDepartmentService().sortDepartmentByName(doesAscending));
                     System.out.println("**************************************************");
                     break;
                 }
@@ -185,7 +189,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    ShowDepartmentsList(FactoryService.getInstance().getDepartmentService().sortDepartmentByFloor(doesAscending));
+                    showDepartmentsList((ArrayList<Department>) FactoryService.getInstance().getDepartmentService().sortDepartmentByFloor(doesAscending));
                     System.out.println("**************************************************");
                     break;
                 }
@@ -197,11 +201,11 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    ArrayList<Department> departmentsList = FactoryService.getInstance().getDepartmentService().findDepartmentByFloor(floor);
+                    ArrayList<Department> departmentsList = (ArrayList<Department>) FactoryService.getInstance().getDepartmentService().findDepartmentByFloor(floor);
 
                     System.out.println("Found departments:\n");
 
-                    ShowDepartmentsList(departmentsList);
+                    showDepartmentsList(departmentsList);
 
                     System.out.println("**************************************************");
                     break;
@@ -210,7 +214,7 @@ public class ConsoleView {
 
                     System.out.println("Departments list:\n");
 
-                    ShowDepartmentsList(FactoryService.getInstance().getDepartmentService().getAllDepartments());
+                    showDepartmentsList((ArrayList<Department>) FactoryService.getInstance().getDepartmentService().getAllDepartments());
 
                     System.out.println("**************************************************");
                     break;
@@ -232,7 +236,7 @@ public class ConsoleView {
      * Отображает передаваемый список объектов
      * @param departmentsList список объектов типа {@link Department}
      */
-    private void ShowDepartmentsList(ArrayList<Department> departmentsList) {
+    private void showDepartmentsList(ArrayList<Department> departmentsList) {
 
         for (Department department: departmentsList) {
             System.out.println(department.toString());
@@ -242,14 +246,14 @@ public class ConsoleView {
     /**
      * Показывает список объктов типа {@link Human} и список функций для работы с ними
      */
-    public void ShowHumans(){
+    public void showHumans(){
 
         boolean exitFlag = false;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Humans List:\n");
 
-        ShowHumansList(FactoryService.getInstance().getHumanService().getAllHumans());
+        showHumansList((ArrayList<Human>) FactoryService.getInstance().getHumanService().getAllHumans());
 
         System.out.println("**************************************************");
 
@@ -278,7 +282,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    HumanView humanView = FactoryHumansView.GetView(humanType);
+                    HumanView humanView = FactoryHumansView.getView(humanType);
 
                     if(humanView == null) {
                         System.out.println("Incorrect human type");
@@ -286,7 +290,7 @@ public class ConsoleView {
                         continue;
                     }
 
-                    Human human = humanView.StartToCreate();
+                    Human human = humanView.startToCreate();
 
                     System.out.println("**************************************************");
 
@@ -312,7 +316,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    HumanView humanView = FactoryHumansView.GetView(humanType);
+                    HumanView humanView = FactoryHumansView.getView(humanType);
 
                     if(humanView == null) {
                         System.out.println("Incorrect human type");
@@ -320,14 +324,25 @@ public class ConsoleView {
                         continue;
                     }
 
-                    if ((FactoryService.getInstance().getHumanService().getHuman(humanId)) == null) {
+                    Human bufHuman = FactoryService.getInstance().getHumanService().getHuman(humanId);
+
+                    if (bufHuman == null) {
 
                         System.out.println("Incorrect id!");
                         System.out.println("**************************************************");
                         break;
                     }
+                    else {
 
-                    Human human = humanView.StartToCreate();
+                        if (bufHuman.getClass().getSimpleName() != humanType) {
+
+                            System.out.println("Incorrect human type with id!");
+                            System.out.println("**************************************************");
+                            break;
+                        }
+                    }
+
+                    Human human = humanView.startToCreate();
 
                     System.out.println("**************************************************");
 
@@ -338,11 +353,13 @@ public class ConsoleView {
                     System.out.println("Enter human id: ");
 
                     if (!scanner.hasNextInt()) {
-                        System.out.println("Incorrect type value!");
+                        System.out.println("Incorrect type value!  ");
                         System.out.println("**************************************************");
                         scanner.nextLine();
                         break;
                     }
+
+                    System.out.println("**************************************************");
 
                     int humanId = scanner.nextInt();
                     scanner.nextLine();
@@ -372,7 +389,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    ShowHumansList(FactoryService.getInstance().getHumanService().sortByDepartmentName(doesAscending));
+                    showHumansList((ArrayList<Human>) FactoryService.getInstance().getHumanService().sortByDepartmentName(doesAscending));
                     System.out.println("**************************************************");
                     break;
                 }
@@ -391,7 +408,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    ShowHumansList(FactoryService.getInstance().getHumanService().sortByGender(doesAscending));
+                    showHumansList((ArrayList<Human>) FactoryService.getInstance().getHumanService().sortByGender(doesAscending));
                     System.out.println("**************************************************");
                     break;
                 }
@@ -402,7 +419,7 @@ public class ConsoleView {
 
                     System.out.println("**************************************************");
 
-                    ArrayList<Human> humansList = FactoryService.getInstance().getHumanService().findByDepartmentName(departmentName);
+                    ArrayList<Human> humansList = (ArrayList<Human>) FactoryService.getInstance().getHumanService().findByDepartmentName(departmentName);
 
                     System.out.println("Found humans:\n");
 
@@ -418,7 +435,7 @@ public class ConsoleView {
 
                     System.out.println("Humans List:\n");
 
-                    ShowHumansList(FactoryService.getInstance().getHumanService().getAllHumans());
+                    showHumansList((ArrayList<Human>) FactoryService.getInstance().getHumanService().getAllHumans());
 
                     System.out.println("**************************************************");
                     break;
@@ -440,7 +457,7 @@ public class ConsoleView {
      * Отображает передаваемый список объектов
      * @param humansList список объектов типа {@link Human}
      */
-    private void ShowHumansList(ArrayList<Human> humansList) {
+    private void showHumansList(ArrayList<Human> humansList) {
 
         for (Human human: humansList) {
             System.out.println(human.toString());

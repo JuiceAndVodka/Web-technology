@@ -18,11 +18,11 @@ public class PatientView implements  HumanView {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link Patient}
      */
-    public Human StartToCreate() {
+    public Human startToCreate() {
 
         Scanner scanner = new Scanner(System.in);
 
-        Human human = HumanViewImplementation.StartToCreate();
+        Human human = HumanViewImplementation.startToCreate();
 
         System.out.println("Enter ward number");
         int wardNumber;
@@ -37,7 +37,7 @@ public class PatientView implements  HumanView {
 
         scanner.nextLine();
 
-        Disease disease = DiseaseView.StartToCreate();
+        Disease disease = DiseaseView.startToCreate();
 
         return  new Patient(human.getName(), human.getSurname(), human.getPatronymic(), human.getGender(),
                             human.getHomeAdress(), human.getBirthDay(), human.getPhoneNumber(),

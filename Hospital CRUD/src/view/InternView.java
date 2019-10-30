@@ -18,11 +18,11 @@ public class InternView implements HumanView {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link Intern}
      */
-    public Human StartToCreate() {
+    public Human startToCreate() {
 
         Scanner scanner = new Scanner(System.in);
 
-        MedicalWorker medicalWorker = MedicalWorkerView.StartToCreate();
+        MedicalWorker medicalWorker = MedicalWorkerView.startToCreate();
 
         System.out.println("Enter internship started date");
         String internshipStarted = scanner.nextLine();

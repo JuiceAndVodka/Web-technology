@@ -3,6 +3,7 @@ package service;
 import bean.Department;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * интерфейс для представления бизнес-логики для объеков типа {@link Department}
@@ -22,7 +23,7 @@ public interface DepartmentService {
      * Получает список объектов типа {@link Department}
      * @return список объектов типа {@link Department}
      */
-    ArrayList<Department> getAllDepartments();
+    List<Department> getAllDepartments();
 
     /**
      * Добаляет передаваемый объект типа {@link Department} в список таких объектов
@@ -51,19 +52,19 @@ public interface DepartmentService {
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Department}
      */
-    ArrayList<Department> sortDepartmentByName(boolean doesAscending);
+    List<Department> sortDepartmentByName(boolean doesAscending);
 
     /**
      * Сортирует все элементы списка с объектами типа {@link Department} по этажу отделения
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Department}
      */
-    ArrayList<Department> sortDepartmentByFloor(boolean doesAscending);
+    List<Department> sortDepartmentByFloor(boolean doesAscending);
 
     /**
      * Выполняет поиск подходящих объектов типа {@link Department} по критерию этажа
      * @param floor этаж (критерий поиска)
      * @return список найденных объектов типа {@link Department}
      */
-    ArrayList<Department> findDepartmentByFloor(int floor);
+    List<Department> findDepartmentByFloor(int floor);
 }

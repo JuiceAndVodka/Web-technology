@@ -3,6 +3,7 @@ package dao;
 import bean.Department;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * интерфейс для общения с Базой Данных ради объекта типа {@link Department}
@@ -15,7 +16,7 @@ public interface DepartmentDAO {
      * Получает все объекты типа {@link Department} из Базы Данных
      * @return список объектов типа {@link Department}
      */
-    ArrayList<Department> getAll();
+    List<Department> getAll();
 
     /**
      * Возвращает объект типа {@link Department} из Базы Данных

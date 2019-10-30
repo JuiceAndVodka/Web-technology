@@ -16,7 +16,7 @@ public class Main {
 
         ConsoleView consoleView = new ConsoleView();
 
-        consoleView.Start();
+        consoleView.start();
     }
 
 }

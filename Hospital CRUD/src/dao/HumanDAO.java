@@ -3,6 +3,7 @@ package dao;
 import bean.Human;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * интерфейс для общения с Базой Данных ради объекта типа {@link Human}
@@ -15,7 +16,7 @@ public interface HumanDAO {
      * Получает все объекты типа {@link Human} из Базы Данных
      * @return список объектов типа {@link Human}
      */
-    ArrayList<Human> getAll();
+    List<Human> getAll();
 
     /**
      * Возвращает объект типа {@link Human} из Базы ДАнных

@@ -4,10 +4,8 @@ import bean.Department;
 import dao.DepartmentDAO;
 import dao.FactoryDAO;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * Класс бизнес логики для объектов типа {@link Department}, реализующий {@link DepartmentService}
@@ -34,7 +32,7 @@ public class DepartmentServiceImplementation implements DepartmentService {
      * {@link FactoryDAO#getDepartmentDAO()}
      * @return список объектов типа {@link Department}
      */
-    public ArrayList<Department> getAllDepartments() {
+    public List<Department> getAllDepartments() {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
 
@@ -91,10 +89,10 @@ public class DepartmentServiceImplementation implements DepartmentService {
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Department}
      */
-    public ArrayList<Department> sortDepartmentByName(boolean doesAscending) {
+    public List<Department> sortDepartmentByName(boolean doesAscending) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
-        ArrayList<Department> departmentsList =  departmentDAO.getAll();
+        ArrayList<Department> departmentsList =  (ArrayList<Department>)departmentDAO.getAll();
         Collections.sort(departmentsList, new DepartmentNameComparator());
 
         if (!doesAscending) {
@@ -113,10 +111,10 @@ public class DepartmentServiceImplementation implements DepartmentService {
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Department}
      */
-    public ArrayList<Department> sortDepartmentByFloor(boolean doesAscending) {
+    public List<Department> sortDepartmentByFloor(boolean doesAscending) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
-        ArrayList<Department> departmentsList =  departmentDAO.getAll();
+        ArrayList<Department> departmentsList =  (ArrayList<Department>)departmentDAO.getAll();
         Collections.sort(departmentsList, new DepartmentFloorComparator());
 
         if (!doesAscending) {
@@ -135,10 +133,10 @@ public class DepartmentServiceImplementation implements DepartmentService {
      * @param floor этаж (критерий поиска)
      * @return список найденных объектов типа {@link Department}
      */
-    public ArrayList<Department> findDepartmentByFloor(int floor) {
+    public List<Department> findDepartmentByFloor(int floor) {
 
         DepartmentDAO departmentDAO = FactoryDAO.getInstance().getDepartmentDAO();
-        ArrayList<Department> departmentsList =  departmentDAO.getAll();
+        ArrayList<Department> departmentsList =  (ArrayList<Department>)departmentDAO.getAll();
         ArrayList<Department> appropriateDepartmentsList = new ArrayList<>();
 
         for (Department department: departmentsList)
@@ -156,7 +154,7 @@ public class DepartmentServiceImplementation implements DepartmentService {
      * @author Абраменко Алексей, 751003
      * @version 1.0
      */
-    class DepartmentNameComparator implements Comparator<Department> {
+    private class DepartmentNameComparator implements Comparator<Department> {
 
         public int compare(Department firstDepartment, Department secondDepartment){
 
@@ -169,7 +167,7 @@ public class DepartmentServiceImplementation implements DepartmentService {
      * @author Абраменко Алексей, 751003
      * @version 1.0
      */
-    class DepartmentFloorComparator implements Comparator<Department>{
+    private class DepartmentFloorComparator implements Comparator<Department>{
 
         public int compare(Department firstDepartment, Department secondDepartment){
 

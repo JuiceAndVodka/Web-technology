@@ -4,10 +4,7 @@ import bean.Human;
 import dao.FactoryDAO;
 import dao.HumanDAO;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * Класс бизнес логики для объектов типа {@link Human}, реализующий {@link DepartmentService}
@@ -34,7 +31,7 @@ public class HumanServiceImplementation implements HumanService {
      * {@link FactoryDAO#getHumanDAO()}
      * @return список объектов типа {@link Human}
      */
-    public ArrayList<Human> getAllHumans() {
+    public List<Human> getAllHumans() {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
 
@@ -92,10 +89,10 @@ public class HumanServiceImplementation implements HumanService {
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Human}
      */
-    public ArrayList<Human> sortByDepartmentName(boolean doesAscending) {
+    public List<Human> sortByDepartmentName(boolean doesAscending) {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
-        ArrayList<Human> humansList =  humanDAO.getAll();
+        ArrayList<Human> humansList =  (ArrayList<Human>)humanDAO.getAll();
         Collections.sort(humansList, new HumanDepartmentNameComparator().thenComparing(new HumanFirstNameComparator()));
 
         if (!doesAscending) {
@@ -114,10 +111,10 @@ public class HumanServiceImplementation implements HumanService {
      * @param doesAscending восходящая или нисходящая сортировка
      * @return список отсортированных объектов типа {@link Human}
      */
-    public ArrayList<Human> sortByGender(boolean doesAscending) {
+    public List<Human> sortByGender(boolean doesAscending) {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
-        ArrayList<Human> humansList =  humanDAO.getAll();
+        ArrayList<Human> humansList =  (ArrayList<Human>)humanDAO.getAll();
         Collections.sort(humansList, new HumanGenderComparator());
 
         if (!doesAscending) {
@@ -136,10 +133,10 @@ public class HumanServiceImplementation implements HumanService {
      * @param name название отделения (критерий поиска)
      * @return список найденных объектов типа {@link Human}
      */
-    public ArrayList<Human> findByDepartmentName(String name) {
+    public List<Human> findByDepartmentName(String name) {
 
         HumanDAO humanDAO = FactoryDAO.getInstance().getHumanDAO();
-        ArrayList<Human> humansList =  humanDAO.getAll();
+        ArrayList<Human> humansList =  (ArrayList<Human>)humanDAO.getAll();
         ArrayList<Human> appropriateHumansList = new ArrayList<>();
 
         for (Human human: humansList)

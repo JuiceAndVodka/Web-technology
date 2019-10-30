@@ -18,11 +18,11 @@ public class NurseView implements HumanView {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link Nurse}
      */
-    public Human StartToCreate() {
+    public Human startToCreate() {
 
         Scanner scanner = new Scanner(System.in);
 
-        MedicalWorker medicalWorker = MedicalWorkerView.StartToCreate();
+        MedicalWorker medicalWorker = MedicalWorkerView.startToCreate();
 
         System.out.println("Enter current post");
         String currentPost = scanner.nextLine();

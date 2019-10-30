@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +26,7 @@ public class TextFileDepartmentDAO implements DepartmentDAO {
      * Получение всех объектов типа {@link Department}, хранящихся в текстовом файле
      * @return список объектов типа {@link Department}
      */
-    public ArrayList<Department> getAll() {
+    public List<Department> getAll() {
 
         ArrayList<Department> departmentsList = getAllDepartments();
         return (ArrayList<Department>)departmentsList.clone();

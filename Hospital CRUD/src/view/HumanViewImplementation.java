@@ -15,7 +15,7 @@ public class HumanViewImplementation {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link Human}
      */
-    public static Human StartToCreate()
+    public static Human startToCreate()
     {
         Scanner scanner = new Scanner(System.in);
 

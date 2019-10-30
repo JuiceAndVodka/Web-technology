@@ -15,7 +15,7 @@ public class DiseaseView {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link Disease}
      */
-    public static Disease StartToCreate() {
+    public static Disease startToCreate() {
 
         Scanner scanner = new Scanner(System.in);
 

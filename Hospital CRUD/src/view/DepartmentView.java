@@ -15,7 +15,7 @@ public class DepartmentView {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link Department}
      */
-    public static Department StartToCreate() {
+    public static Department startToCreate() {
 
         Scanner scanner = new Scanner(System.in);
 

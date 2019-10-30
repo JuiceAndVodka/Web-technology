@@ -16,11 +16,11 @@ public class MedicalWorkerView {
      * Создаёт новый объект путём общения пользователя и приложения для ввода нужных значений
      * @return новый объект типа {@link MedicalWorker}
      */
-    public static MedicalWorker StartToCreate() {
+    public static MedicalWorker startToCreate() {
 
         Scanner scanner = new Scanner(System.in);
 
-        Human human = HumanViewImplementation.StartToCreate();
+        Human human = HumanViewImplementation.startToCreate();
 
         System.out.println("Enter diploma profession");
         String diplomaProfession = scanner.nextLine();

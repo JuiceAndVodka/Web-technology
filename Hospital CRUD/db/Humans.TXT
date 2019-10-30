@@ -1,0 +1,2 @@
+Nurse#0#sdf#hgh#hfh#fh#fhf#hf#hfh#fh#fh#fh#fh#fh#hf#hf#5#5#
+Patient#435889360#Kirill#Jahonson#Petrovich#male#22.11.1977#Gikalo 9a#+375-33-297-33-45#Therapy department#20#Disease#Chahotka#29.11.1990#100#It hurts#Some pills#true#
