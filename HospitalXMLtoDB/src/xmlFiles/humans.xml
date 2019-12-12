@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<humans xmlns="http://www.pirozhok.org/human/"
+    xmlns:ds="http://www.pirozhok.org/disease/">
+    <Doctor>
+        <id>1</id>
+        <name>Vasiliy</name>
+        <surname>Nikorchik</surname>
+        <patronymic>Georgovich</patronymic>
+        <gender>male</gender>
+        <homeadress>Minsk, Gikalo 9a</homeadress>
+        <birthday>11.11.1996</birthday>
+        <phonenumber>+375-29-666-55-44</phonenumber>
+        <departmentname>male</departmentname>
+        <diplomaprofession>Therapist</diplomaprofession>
+        <workphonenumber>+375-33-666-55-43</workphonenumber>
+        <universityname>VSMU</universityname>
+        <universityended>22.10.2015</universityended>
+        <currentpost>Therapist</currentpost>
+        <startedworking>26.12.2017</startedworking>
+        <patientshealed>20</patientshealed>
+    </Doctor>
+    <Doctor>
+        <id>2</id>
+        <name>Petr</name>
+        <surname>Retushenko</surname>
+        <patronymic>Petrovich</patronymic>
+        <gender>male</gender>
+        <homeadress>Minsk, Gikalo 9a</homeadress>
+        <birthday>11.11.1996</birthday>
+        <phonenumber>+375-29-666-55-44</phonenumber>
+        <departmentname>male</departmentname>
+        <diplomaprofession>Surgeon</diplomaprofession>
+        <workphonenumber>+375-33-666-55-43</workphonenumber>
+        <universityname>VSMU</universityname>
+        <universityended>22.10.2015</universityended>
+        <currentpost>Surgeon</currentpost>
+        <startedworking>26.12.2018</startedworking>
+        <patientshealed>13</patientshealed>
+    </Doctor>
+    <Nurse>
+        <id>3</id>
+        <name>Elena</name>
+        <surname>Panina</surname>
+        <patronymic>Vasilevna</patronymic>
+        <gender>female</gender>
+        <homeadress>Minsk, Gikalo 9a</homeadress>
+        <birthday>11.11.1996</birthday>
+        <phonenumber>+375-29-666-55-44</phonenumber>
+        <departmentname>Therapy</departmentname>
+        <diplomaprofession>Nurse</diplomaprofession>
+        <workphonenumber>+375-33-666-55-43</workphonenumber>
+        <universityname>VSMU</universityname>
+        <universityended>22.10.2015</universityended>
+        <currentpost>Nurse</currentpost>
+        <startedworking>26.12.2018</startedworking>
+        <injectionsdid>13</injectionsdid>
+        <patientssaved>54</patientssaved>
+    </Nurse>
+</humans>

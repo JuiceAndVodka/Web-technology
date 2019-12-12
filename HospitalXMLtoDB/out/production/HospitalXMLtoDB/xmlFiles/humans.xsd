@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           targetNamespace="http://www.pirozhok.org/human/"
+           xmlns:human="http://www.pirozhok.org/human/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ds="http://www.pirozhok.org/disease/">
+  <xs:import schemaLocation="disease.xsd" namespace="http://www.pirozhok.org/disease/"/>
+  <xs:element name="id" type="xs:integer"/>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="surname" type="xs:string"/>
+  <xs:element name="patronymic" type="xs:string"/>
+  <xs:element name="gender" type="xs:string"/>
+  <xs:element name="homeadress" type="xs:string"/>
+  <xs:element name="birthday" type="xs:string"/>
+  <xs:element name="phonenumber" type="xs:string"/>
+  <xs:element name="departmentname" type="xs:string"/>
+  <xs:element name="diplomaprofession" type="xs:string"/>
+  <xs:element name="workphonenumber" type="xs:string"/>
+  <xs:element name="universityname" type="xs:string"/>
+  <xs:element name="universityended" type="xs:string"/>
+  <xs:element name="currentpost" type="xs:string"/>
+  <xs:element name="startedworking" type="xs:string"/>
+  <xs:element name="endedworking" type="xs:string"/>
+  <xs:element name="patientshealed" type="xs:integer"/>
+  <xs:element name="futureplansforhospital" type="xs:string"/>
+  <xs:element name="injectionsdid" type="xs:integer"/>
+  <xs:element name="patientssaved" type="xs:integer"/>
+  <xs:element name="internshipstarted" type="xs:string"/>
+  <xs:element name="internshipdays" type="xs:integer"/>
+  <xs:element name="mistakesmade" type="xs:integer"/>
+  <xs:element name="wardnumber" type="xs:integer"/>
+  <xs:element name="Human" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="human:id" />
+        <xs:element ref="human:name" />
+        <xs:element ref="human:surname" />
+        <xs:element ref="human:patronymic" />
+        <xs:element ref="human:gender" />
+        <xs:element ref="human:homeadress" />
+        <xs:element ref="human:birthday" />
+        <xs:element ref="human:phonenumber" />
+        <xs:element ref="human:departmentname" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MedicalWorker" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="human:id" />
+        <xs:element ref="human:name" />
+        <xs:element ref="human:surname" />
+        <xs:element ref="human:patronymic" />
+        <xs:element ref="human:gender" />
+        <xs:element ref="human:homeadress" />
+        <xs:element ref="human:birthday" />
+        <xs:element ref="human:phonenumber" />
+        <xs:element ref="human:departmentname" />
+        <xs:element ref="human:diplomaprofession" />
+        <xs:element ref="human:workphonenumber" />
+        <xs:element ref="human:universityname" />
+        <xs:element ref="human:universityended" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Doctor" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="human:id" />
+        <xs:element ref="human:name" />
+        <xs:element ref="human:surname" />
+        <xs:element ref="human:patronymic" />
+        <xs:element ref="human:gender" />
+        <xs:element ref="human:homeadress" />
+        <xs:element ref="human:birthday" />
+        <xs:element ref="human:phonenumber" />
+        <xs:element ref="human:departmentname" />
+        <xs:element ref="human:diplomaprofession" />
+        <xs:element ref="human:workphonenumber" />
+        <xs:element ref="human:universityname" />
+        <xs:element ref="human:universityended" />
+        <xs:element ref="human:currentpost" />
+        <xs:element ref="human:startedworking" />
+        <xs:element ref="human:patientshealed" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HeadPhysician" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="human:id" />
+        <xs:element ref="human:name" />
+        <xs:element ref="human:surname" />
+        <xs:element ref="human:patronymic" />
+        <xs:element ref="human:gender" />
+        <xs:element ref="human:homeadress" />
+        <xs:element ref="human:birthday" />
+        <xs:element ref="human:phonenumber" />
+        <xs:element ref="human:departmentname" />
+        <xs:element ref="human:diplomaprofession" />
+        <xs:element ref="human:workphonenumber" />
+        <xs:element ref="human:universityname" />
+        <xs:element ref="human:universityended" />
+        <xs:element ref="human:startedworking" />
+        <xs:element ref="human:endedworking" />
+        <xs:element ref="human:futureplansforhospital" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Nurse" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="human:id" />
+        <xs:element ref="human:name" />
+        <xs:element ref="human:surname" />
+        <xs:element ref="human:patronymic" />
+        <xs:element ref="human:gender" />
+        <xs:element ref="human:homeadress" />
+        <xs:element ref="human:birthday" />
+        <xs:element ref="human:phonenumber" />
+        <xs:element ref="human:departmentname" />
+        <xs:element ref="human:diplomaprofession" />
+        <xs:element ref="human:workphonenumber" />
+        <xs:element ref="human:universityname" />
+        <xs:element ref="human:universityended" />
+        <xs:element ref="human:currentpost" />
+        <xs:element ref="human:startedworking" />
+        <xs:element ref="human:injectionsdid" />
+        <xs:element ref="human:patientssaved" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Intern" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="human:id" />
+        <xs:element ref="human:name" />
+        <xs:element ref="human:surname" />
+        <xs:element ref="human:patronymic" />
+        <xs:element ref="human:gender" />
+        <xs:element ref="human:homeadress" />
+        <xs:element ref="human:birthday" />
+        <xs:element ref="human:phonenumber" />
+        <xs:element ref="human:departmentname" />
+        <xs:element ref="human:diplomaprofession" />
+        <xs:element ref="human:workphonenumber" />
+        <xs:element ref="human:universityname" />
+        <xs:element ref="human:universityended" />
+        <xs:element ref="human:internshipstarted" />
+        <xs:element ref="human:internshipdays" />
+        <xs:element ref="human:mistakesmade" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Patient" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="human:id" />
+        <xs:element ref="human:name" />
+        <xs:element ref="human:surname" />
+        <xs:element ref="human:patronymic" />
+        <xs:element ref="human:gender" />
+        <xs:element ref="human:homeadress" />
+        <xs:element ref="human:birthday" />
+        <xs:element ref="human:phonenumber" />
+        <xs:element ref="human:departmentname" />
+        <xs:element ref="human:diplomaprofession" />
+        <xs:element ref="human:workphonenumber" />
+        <xs:element ref="human:universityname" />
+        <xs:element ref="human:universityended" />
+        <xs:element ref="human:wardnumber" />
+        <xs:element ref="human:disease" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="humansgroup" >
+    <xs:choice>
+      <xs:element ref="human:Human" />
+      <xs:element ref="human:MedicalWorker" />
+      <xs:element ref="human:Doctor" />
+      <xs:element ref="human:HeadPhysician" />
+      <xs:element ref="human:Nurse" />
+      <xs:element ref="human:Intern" />
+      <xs:element ref="human:Patient" />
+    </xs:choice>
+  </xs:group>
+  <xs:element name="humans" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group ref="human:humansgroup"  minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="disease" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ds:Disease" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

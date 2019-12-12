@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="log4j-1.2.14">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jar files/log4j-1.2.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jar files/mysql-connector-java-8.0.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<departments xmlns="http://www.pirozhok.org/departments/">
+    <Department>
+        <id>1</id>
+        <name>Therapy</name>
+		<floor>4</floor>
+		<wardsamount>100</wardsamount>
+		<doctorsamount>30</doctorsamount>
+        <currentpatientsamount>50</currentpatientsamount>
+        <maxpatientsamount>200</maxpatientsamount>
+    </Department>
+    <Department>
+        <id>2</id>
+        <name>Surgeon</name>
+		<floor>3</floor>
+		<wardsamount>20</wardsamount>
+		<doctorsamount>10</doctorsamount>
+        <currentpatientsamount>4</currentpatientsamount>
+        <maxpatientsamount>30</maxpatientsamount>
+    </Department>
+</departments>
